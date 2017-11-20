@@ -1,3 +1,7 @@
+//#include <RobotIRremote.h>
+//#include <RobotIRremoteInt.h>
+//#include <RobotIRremoteTools.h>
+
 #include <AcceleroMMA7361.h>
 
 AcceleroMMA7361 accelero; // Création du composant
