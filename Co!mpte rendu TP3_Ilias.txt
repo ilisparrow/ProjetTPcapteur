@@ -1,0 +1,40 @@
+Durant ce TP nous avons commencé par mettre en place des outils de collaborationa fin d'avancer au plus vite et d'aumenter notre productivité. 
+ainsi nous avons crée un repetoir GIT pour la synchronisation des fichiers.
+
+
+
+Ensuite, je vais dans un premier temps, mettre essayé d'afficher le graph dezs valeurs que nous renvoi le capteur, afin de verfier qu'il fonctionne correctement.
+Pour ce faire, je vais utiliser le graphSerial de l'IDE arduino, pour l'instant je ne sai spas comment doivent etre formatée les donnée en sortie.
+Il faut suffit de mettre juste la valeur en serie et si on souhaite en afficher pluisieur de rajouter des espace.------1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------1 http://www.instructables.com/id/Ultimate-Guide-to-Adruino-Serial-Plotter/
+
