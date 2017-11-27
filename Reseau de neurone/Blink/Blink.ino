@@ -307,13 +307,9 @@ void toTerminal()
 
 }
 
-void InputToOutput(float In1, float In2, float In3, float In4)
+void InputToOutput(float In1)
 {
-  float TestInput[] = {0, 0, 0, 0};
-  TestInput[0] = In1;
-  TestInput[1] = In2;
-  TestInput[2] = In3;
-  TestInput[3] = In4;
+  float TestInput = In1;
 
   /******************************************************************
     Compute hidden layer activations
@@ -322,7 +318,7 @@ void InputToOutput(float In1, float In2, float In3, float In4)
   for ( i = 0 ; i < HiddenNodes ; i++ ) {
     Accum = HiddenWeights[InputNodes][i] ;
     for ( j = 0 ; j < InputNodes ; j++ ) {
-      Accum += TestInput[j] * HiddenWeights[j][i] ;
+      Accum += TestInput * HiddenWeights[j][i] ;
     }
     Hidden[i] = 1.0 / (1.0 + exp(-Accum)) ;
   }
