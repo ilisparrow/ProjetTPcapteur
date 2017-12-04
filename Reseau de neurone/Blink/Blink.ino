@@ -17,7 +17,18 @@
 
 /******************************************************************
  * Network Configuration - customized per network
+ * 
  ******************************************************************/
+
+#include <AcceleroMMA7361.h>
+
+AcceleroMMA7361 accelero; // Création du composant
+int x; // Création des variables pour les 3 accélérations 
+int y;
+int z;
+bool avant=true;
+
+
  #include <math.h>
 
  const int valeurCapteurAvantChuteAvant = 1;//a changer au moment de la calibration
@@ -79,23 +90,41 @@ float ChangeOutputWeights[HiddenNodes+1][OutputNodes];
 
 void setup(){
   Serial.begin(9600);
+  //generation des valeurs aléatoires
   randomSeed(analogRead(3));
   ReportEvery100 = 1;
   for( p = 0 ; p < PatternCount ; p++ ) {
     RandomizedIndex[p] = p ;
+
+    entrainement();
   }
+/*
+ --------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------
+Initialisation de l'accelerometre
+ --------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------
+ */
+ accelero.begin(13, 12, 11, 10, A0, A1, A2); // Démarrer le composant
+ accelero.setARefVoltage(5); // Régler la tension de référence
+ accelero.setSensitivity(LOW); // Régler la sensibilité du composant +/-6G
+ accelero.calibrate(); // Calibrer le composant
 }
 
 void loop (){
-entrainement();
 
+  /******************************************************************
+  * recuperation des valeurs 
+  ******************************************************************/
+ 
+ x = map(accelero.getXAccel(),-100,100,60,255); // Lecture de l'axe X
+
+ InputToOutput(x);
+ delay(10ms);
 }
 
 void entrainement(){
 
-  /******************************************************************
-  * Initialize HiddenWeights and ChangeHiddenWeights
-  ******************************************************************/
 
     for( i = 0 ; i < HiddenNodes ; i++ ) {
       for( j = 0 ; j <= InputNodes ; j++ ) {
