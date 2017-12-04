@@ -31,12 +31,12 @@ bool avant=true;
 
  #include <math.h>
 
- const int valeurCapteurAvantChuteAvant = 1;//a changer au moment de la calibration
- const int valeurCapteurAvantChuteArriere = 1;//a changer au moment de la calibration
- const int valeurCapteurAvantChuteAvantSURDEUX = 1;
- const int valeurCapteurAvantChuteArriereSURDEUX = 1;
+ const int valeurCapteurAvantChuteAvant = -100;//a changer au moment de la calibration
+ const int valeurCapteurAvantChuteArriere = 100;//a changer au moment de la calibration
+ const int valeurCapteurAvantChuteAvantSURDEUX = 70;
+ const int valeurCapteurAvantChuteArriereSURDEUX = -60;
 
- const int ValeurTensionCorrection = 1;//a changer au moment de la calibration
+ const int ValeurTensionCorrection = 255;//a changer au moment de la calibration
 
 
 
@@ -120,7 +120,7 @@ void loop (){
  x = map(accelero.getXAccel(),-100,100,60,255); // Lecture de l'axe X
 
  InputToOutput(x);
- delay(10ms);
+ delay(10);
 }
 
 void entrainement(){
